@@ -16,7 +16,7 @@ import { SettingsContext } from './context/settingsContext';
 
 
 const Home = () => {
-
+//khvjhgkjhgflhjfljhfg
   const {
     pomodoro,
     executing,
@@ -74,6 +74,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="button-wrapper">
+
                 <Button
                   title="Start"
                   activeClass={!startAnimate ? 'active' : undefined}
