@@ -1,0 +1,15 @@
+.store{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.store h1 {
+    color:var(--primary);
+    font-size: 3rem;
+    margin-bottom: 48px;
+}
+.store_cards{
+    display: flex;
+    gap:24px;
+}
