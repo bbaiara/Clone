@@ -4,9 +4,13 @@
 
 
 body {
+  --primary: #0B7189;
+  --secondary:#228cdb;
+  --disabled:#0B718970;
+  --background:#B0D0D3;
+  background-color: white;
+  color:white;
   margin: 0;
-  background: #ffffff;
-  background: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,15 +18,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p{
+  margin:0;
+  padding: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+.flex{
+  display: flex;
+}
+.flex_center{
+  justify-content: center;
+}
+.flex_row{
+  flex-direction: row;
+}
+
 /* Add these styles to your existing Tailwind CSS styles or create a separate CSS file */
 .sidebar {
-  width: 80px;
+  width: 60px;
+  z-index: 9999;
   transition: width 0.3s;
+  display: flex;
+   flex-direction: column;
+   padding-bottom: 24px;
+ }
+ .logout{
+   cursor: pointer;
+ }
+ .logout:hover{
+   background: var(--primary) !important;
+   color:white;
+ }
+ .logout button{
+   background: none;
+   color: inherit;
+   font-weight: normal;
+   font-size:medium;
+ }
+ .navbarhover ul li a:hover{
+   background: var(--primary) !important;
+   color:white;
 }
 
 .sidebar-toggle {
@@ -36,12 +76,9 @@ code {
   transition: margin-left 0.3s;
 }
 
-.sidebar-open .sidebar {
-  width: 200px; /* Adjust the width as needed */
-}
-
-.sidebar-open .main-content {
-  margin-left: 200px; /* Adjust the margin as needed */
+.sidebar-open  {
+  width: 200px;
+  transition: all 0.1s ease-in-out;
 }
 .square-avatar {
   height: 100%;

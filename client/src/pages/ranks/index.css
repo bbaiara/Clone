@@ -1,0 +1,12 @@
+.ranks{
+    padding-top: 24px;
+    padding: 24px 48px;
+    max-height: 100vh;
+    overflow: scroll;
+    /* background: var(--background); */
+}
+.ranks h1{
+    text-align: center;
+    font-size: 3rem;
+    color: var(--primary);
+}

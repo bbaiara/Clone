@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import SigninForm from './auth/forms/signin';
@@ -6,7 +6,7 @@ import SignUpForm from './auth/forms/signup';
 
 import Sidebar from './shared/sidebar';
 import SettingsPage from './shared/SettingsPage';
-import StorePage from './shared/StorePage';
+// import StorePage from './shared/StorePage';
 import Achievements from './shared/Achievements';
 
 import Button from './components/Button';
@@ -14,7 +14,13 @@ import CountdownAnimation from './components/CountdownAnimation'; // Adjust the 
 import SetPomodoro from './components/SetPomodoro'; // Adjust the import path
 import { SettingsContext } from './context/settingsContext';
 
+import Home from './pages/home/Home';
+import Stats from './pages/stats';
+import Store from './pages/store';
+import { ConfigProvider } from 'antd';
+import Ranks from './pages/ranks';
 
+/*
 const Home = () => {
 
   const {
@@ -92,8 +98,8 @@ const Home = () => {
         </div>
       );      
     };
-  
-    // Assuming SigninForm and SignUpForm are similar components
+*/
+// Assuming SigninForm and SignUpForm are similar components
 const AuthForm = ({ children }) => {
   return (
     <div className="flex items-center justify-center h-screen">
@@ -143,15 +149,29 @@ function App() {
   };
 
   return (
-    <div>
-      <div className={`flex ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-        {!isAuthRoute && (
-          <Sidebar
-            toggleSidebar={toggleSidebar}
-            isSidebarOpen={isSidebarOpen}
-            openSettings={openSettings}
-            handleLogout={handleLogout} // Pass the handleLogout function
-          />
+    <ConfigProvider
+      theme={{
+        token:{
+          colorPrimary:'#0B7189',
+          colorTextSecondary:'#228cdb'
+        },
+        components: {
+          Tabs: {
+            itemColor:'white',
+            itemActiveColor:'var(--primary)',
+            fontSize:'1.5rem'
+          },  
+        },
+      }}
+    >
+    <div className={`flex`}>
+      {!isAuthRoute && (
+        <Sidebar
+          toggleSidebar={toggleSidebar}
+          isSidebarOpen={isSidebarOpen}
+          openSettings={openSettings}
+          handleLogout={handleLogout} // Pass the handleLogout function
+        />
         )}
 
         <div className="main-content flex-1">
@@ -169,6 +189,10 @@ function App() {
               element={<Home openSettings={openSettings} />}
             />
             <Route
+              path="/stats"
+              element={<Stats />}
+            />
+            <Route
               path="/settings"
               element={
                 isSettingsOpen ? (
@@ -178,12 +202,14 @@ function App() {
                 )
               }
             />
-            <Route path="/store" element={<StorePage />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/ranks" element={<Ranks />} />
             <Route path="/achievements" element={<Achievements />} />
           </Routes>
-        </div>
-      </div>
+        </div>    
+      
     </div>
+    </ConfigProvider>
   );
 }
 
