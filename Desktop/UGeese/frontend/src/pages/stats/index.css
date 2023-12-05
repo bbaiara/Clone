@@ -1,0 +1,9 @@
+.stats {
+    background: var(--background);
+    height: 100%;
+}
+.stats h1 {
+    text-align: center;
+    color:var(--primary);
+    font-size: 3rem;
+}

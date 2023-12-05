@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link, useNavigate} from 'react-router-dom';
-import { FaBars, FaUser, FaCog, FaChartBar, FaShoppingCart, FaTrophy, FaClock, FaSignOutAlt } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaBars, FaUser, FaCog,FaHome, FaChartBar, FaShoppingCart, FaTrophy, FaClock, FaSignOutAlt } from 'react-icons/fa';
 
 const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) => {
   const navigate = useNavigate();
-
+  let location = useLocation();
+  React.useEffect(() => {
+    toggleSidebar()
+  }, [location]);
   const handleLogoutClick = () => {
     // Perform any additional logout logic here
     handleLogout();
@@ -15,58 +18,66 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) =
 
 
   return (
-    <div className={`sidebar ${isSidebarOpen ? 'bg-yellow-200' : ''} text-black h-screen`}>
+    <div className={`sidebar ${isSidebarOpen ? 'sidebar-open' : ''} text-black h-screen`}>
       <button onClick={toggleSidebar} className="sidebar-toggle p-4 focus:outline-none">
-        <FaBars className="text-black" />
+        <FaBars className="" />
       </button>
-      <nav className={`mt-5 ${isSidebarOpen ? 'block' : 'hidden'}`}>
-        <ul className="space-y-2">
-          {/* Existing items */}
-          <li>
-            <a href="/profile" className="flex items-center p-2 hover:bg-yellow-400">
-              <FaUser className="mr-2 text-black" />
-              Profile
-            </a>
-          </li>
-          <li>
-            <Link to="/settings" className="flex items-center p-2 hover:bg-yellow-400" onClick={openSettings}>
-              <FaCog className="mr-2 text-black" />
-              Settings
-            </Link>
-          </li>
-          <li>
-            <a href="/stats" className="flex items-center p-2 hover:bg-yellow-400">
-              <FaChartBar className="mr-2 text-black" />
-              Stats
-            </a>
-          </li>
-          <li>
-            <a href="/store" className="flex items-center p-2 hover:bg-yellow-400">
-              <FaShoppingCart className="mr-2 text-black" />
-              Store
-            </a>
-          </li>
-          {/* New items for achievements and Top Goose Pomodorks */}
-          <li>
-            <a href="/achievements" className="flex items-center p-2 hover:bg-yellow-400">
-              <FaTrophy className="mr-2 text-black" />
-              Achievements
-            </a>
-          </li>
-          <li>
-            <a href="/top-goose-pomodorks" className="flex items-center p-2 hover:bg-yellow-400">
-              <FaClock className="mr-2 text-black" />
-              Top Goose Pomodorks
-            </a>
-          </li>
-        </ul>
-        <div className="absolute bottom-4 left-4"> 
-        <button className="flex items-center p-2 hover:bg-yellow-400" onClick={handleLogoutClick}>
-        <FaSignOutAlt className="mr-2 text-black" />
-          Logout
-        </button>
+      <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', height:'100%'}}>
+        <nav className={`${isSidebarOpen ? 'block' : 'hidden'} navbarhover`}>
+          <ul className="space-y-2">
+            <li>
+              <Link to="/home" className="flex items-center p-4 ">
+                <FaHome className="mr-2 " />
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile" className="flex items-center p-4 ">
+                <FaUser className="mr-2 " />
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/settings" className="flex items-center p-4 " onClick={openSettings}>
+                <FaCog className="mr-2 " />
+                Settings
+              </Link>
+            </li>
+            <li>
+              <Link to="/stats" className="flex items-center p-4 ">
+                <FaChartBar className="mr-2 " />
+                Stats
+              </Link>
+            </li>
+            <li>
+              <Link to="/store" className="flex items-center p-4 ">
+                <FaShoppingCart className="mr-2 " />
+                Store
+              </Link>
+            </li>
+            {/* New items for achievements and Top Goose Pomodorks */}
+            <li>
+              <Link to="/achievements" className="flex items-center p-4 ">
+                <FaTrophy className="mr-2 " />
+                Achievements
+              </Link>
+            </li>
+            <li>
+              <Link to="/ranks" className="flex items-center p-4 ">
+                <FaClock className="mr-2 " />
+                Top Goose Pomodorks
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className={`logout ${isSidebarOpen ? 'block' : 'hidden'}`} onClick={handleLogoutClick}>
+          <button className="flex items-center p-4" onClick={handleLogoutClick}>
+            <FaSignOutAlt className="mr-2 " />
+            Logout
+          </button>
         </div>
-      </nav>
+      </div>
+
     </div>
   );
 };

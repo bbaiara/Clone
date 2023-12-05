@@ -13,7 +13,6 @@ import Button from './components/Button';
 import CountdownAnimation from './components/CountdownAnimation'; // Adjust the import path
 import SetPomodoro from './components/SetPomodoro'; // Adjust the import path
 import { SettingsContext } from './context/settingsContext';
-
 import Home from './pages/home/Home';
 import Stats from './pages/stats';
 import Store from './pages/store';
@@ -23,16 +22,9 @@ import Ranks from './pages/ranks';
 /*
 const Home = () => {
 
-  const {
-    pomodoro,
-    executing,
-    startAnimate,
-    children,
-    startTimer,
-    pauseTimer,
-    updateExecute,
-    setCurrentTimer,
-    SettingsBtn } = useContext(SettingsContext)
+//     useEffect(() => {
+//         updateExecute(executing);
+//       }, [executing, startAnimate, updateExecute]);
 
     useEffect(() => {
         updateExecute(executing);
@@ -112,7 +104,7 @@ const AuthForm = ({ children }) => {
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
-  const [authState, setAuthState] = useState(''); 
+  const [authState, setAuthState] = useState('');
   const navigate = useNavigate();
 
   const toggleSidebar = () => {
@@ -131,9 +123,9 @@ function App() {
   const isAuthRoute =
     location.pathname === '/sign-in' || location.pathname === '/sign-up';
 
-    const [user, setUser] = useState(null);
-  
-    const handleLogin = () => {
+  const [user, setUser] = useState(null);
+
+  const handleLogin = () => {
     setAuthState('login');
     navigate('/sign-in');
   };

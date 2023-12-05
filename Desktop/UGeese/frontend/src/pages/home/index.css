@@ -1,0 +1,53 @@
+.home_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    text-align: center;
+    height: 100%;
+    background-color: var(--background);
+}
+.home_header{
+    border-radius: 16px;
+    overflow: hidden;
+}
+.home_header button{
+    background:var(--disabled);
+    border:none;
+    color:white;
+    border-radius:0;
+    margin:0;
+    opacity: 0.5;
+}
+.home_header button:first-child{
+    border-right: 0.5px solid white;
+}
+.home_header button:nth-child(2){
+    border-left: 0.5px solid white;
+}
+.home_header_active{
+    background: var(--primary) !important;
+    opacity: 1 !important;
+}
+
+.home_timer_label{
+    font-size: 0.8rem;
+    padding:4px 8px;
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 12px;
+
+}
+.home_timer_time{
+    font-size: 8rem;
+}
+
+.home_timer_button{
+    background: var(--primary);
+    color:white;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    padding: 12px 48px;
+}
