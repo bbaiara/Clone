@@ -1,27 +1,28 @@
-import { useContext } from 'react'
-import {CountdownCircleTimer} from 'react-countdown-circle-timer'
-import { SettingsContext } from '../context/settingsContext'
-const CountdownAnimation = ({key, timer, animate, children}) => {
+// CountdownAnimation.js
+import { useContext } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { SettingsContext } from '../context/settingsContext';
 
-  const { stopAimate } = useContext(SettingsContext)
+const CountdownAnimation = ({ timer, animate, children, sessionId }) => {
+  const { stopAnimate, handleEndSession } = useContext(SettingsContext);
 
-    return (
-      <CountdownCircleTimer
-        key={key}
-        isPlaying={animate}
-        duration={timer * 60}
-        colors={
-          ['#FE6F6B', 0.33]}
-        strokeWidth={8}
-        size={320}
-        trailColor="FEF0AE"
-        onComplete={ () => {
-          stopAimate()
-        }}
-      >
-        {children}
-      </CountdownCircleTimer>
-    )
-}
+  return (
+    <CountdownCircleTimer
+      isPlaying={animate}
+      
+      duration={timer * 60}
+      colors={['var(--primary)', 0.33]}
+      strokeWidth={8}
+      size={320}
+      trailColor="#d9d9d9"
+      onComplete={() => {
+        stopAnimate();
+        handleEndSession(sessionId); // Call handleEndSession when the countdown completes
+      }}
+    >
+      {children}
+    </CountdownCircleTimer>
+  );
+};
 
-export default CountdownAnimation
+export default CountdownAnimation;

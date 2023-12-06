@@ -1,0 +1,45 @@
+.timer_update_wrap{
+    background-color: white;
+    border-radius: 12px;
+    padding:16px 24px;
+    min-width: 300px;
+}
+.timer_update{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+.timer_input_group{
+    color:black;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.timer_input_group label{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.timer_input_group input{
+    border: 0.5px solid gray;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    outline: none;
+    font-size: 1.1rem;
+    
+}
+.timer_input_group input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+
+}
+.timer_update_wrap form button{
+    padding:4px 12px !important;
+    color: white;
+    background: var(--primary);
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    margin-top: 24px;
+    font-size: 1.3rem;
+}

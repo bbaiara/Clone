@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { SettingsContext } from '../context/settingsContext'
-
+import './setpomodoro.css'
 const SetPomodoro = () => {
 
     const [newTimer, setNewTimer] = useState({
@@ -13,64 +13,47 @@ const SetPomodoro = () => {
     const {updateExecute} = useContext(SettingsContext)
 
     const handleChange = input => {
-        const { name, value } = input.target
-        switch (name) {
-            case 'work':
-                setNewTimer({
-                    ...newTimer,
-                    work: parseInt(value)
-                })
-                break;
-            case 'shortBreak':
-                setNewTimer({
-                    ...newTimer,
-                    short: parseInt(value)
-                })
-                break;
-            case 'longBreak':
-                setNewTimer({
-                    ...newTimer,
-                    long: parseInt(value)
-                })
-                break;
-            default:
-                break;
-        }
-    }
+        const { name, value } = input.target;
+        // updateExecute({
+        //   ...newTimer,
+        //   [name]: parseInt(value)
+        // });
+        setNewTimer({...newTimer, [name]:value})
+      };
+      
     const handleSubmit = e => {
         e.preventDefault()
         updateExecute(newTimer)
     }
     return (
-        <div className="form-container">
+        <div className="timer_update_wrap">
             <form noValidate onSubmit={handleSubmit}>
-                <div className="input-wrapper">
-                    <div className="input-group">
+                <div className="timer_update">
+                    <div className="timer_input_group">
                         <label>Focus Time (minutes):</label>
                         <input
-                            className="input"
                             type="number"
                             name="work"
                             onChange={handleChange}
                             value={newTimer.work}
                         />
                     </div>
-                    <div className="input-group">
+                    <div className="timer_input_group">
                         <label>Short Break Time (minutes):</label>
                         <input
                             className="input"
                             type="number"
-                            name="shortBreak"
+                            name="short"
                             onChange={handleChange}
                             value={newTimer.short}
                         />
                     </div>
-                    <div className="input-group">
+                    <div className="timer_input_group">
                         <label>Long Break Time (minutes):</label>
                         <input
                             className="input"
                             type="number"
-                            name="longBreak"
+                            name="long"
                             onChange={handleChange}
                             value={newTimer.long}
                         />
