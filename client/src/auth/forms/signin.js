@@ -73,7 +73,7 @@ export default function SigninForm({ setUser, setAuthState }) {
     <div className='w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100'>
       <h1 className='text-5xl font-semibold'>Login</h1>
       <p className='font-medium text-lg text-gray-500 mt-4'>
-        Welcome back! Please enter your details.
+        Welcome back! sPlease enter your details.
       </p>
       <div className='mt-8'>
         <div className='flex flex-col'>
@@ -82,6 +82,7 @@ export default function SigninForm({ setUser, setAuthState }) {
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             placeholder='Enter your email'
             value={email}
+            minLength={6}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -91,6 +92,7 @@ export default function SigninForm({ setUser, setAuthState }) {
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             placeholder='Enter your password'
             type='password'
+            minLength={6}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
-import SigninForm from './auth/forms/signin';
+// import SigninForm from './auth/forms/signin';
 import SignUpForm from './auth/forms/signup';
 
 import Sidebar from './shared/sidebar';
@@ -16,6 +16,8 @@ import { SettingsContext } from './context/settingsContext';
 import Home from './pages/home/Home';
 import Stats from './pages/stats';
 import Store from './pages/store';
+import Signin from './pages/auth/Signin';
+import Signup from './pages/auth/Signup';
 import { ConfigProvider } from 'antd';
 import Ranks from './pages/ranks';
 
@@ -106,20 +108,22 @@ function App() {
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [authState, setAuthState] = useState('');
   const navigate = useNavigate();
-
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
-
+  
   const openSettings = () => {
     setSettingsOpen(true);
   };
-
+  
   const closeSettings = () => {
     setSettingsOpen(false);
   };
-
+  
   const location = useLocation();
+  useEffect(()=>{
+    if(location.pathname==='/') navigate('/sign-in')
+  },[location])
   const isAuthRoute =
     location.pathname === '/sign-in' || location.pathname === '/sign-up';
 
@@ -170,11 +174,11 @@ function App() {
           <Routes>
             <Route
               path="/sign-in"
-              element={<AuthForm><SigninForm setUser={setUser} setAuthState={setAuthState} /></AuthForm>}
+              element={<AuthForm><Signin setUser={setUser} setAuthState={setAuthState} /></AuthForm>}
             />
             <Route
               path="/sign-up"
-              element={<AuthForm><SignUpForm setUser={setUser} setAuthState={setAuthState} /></AuthForm>}
+              element={<AuthForm><Signup setUser={setUser} setAuthState={setAuthState} /></AuthForm>}
             />
             <Route
               path="/home"
