@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
-import { FaBars, FaUser, FaCog, FaHome, FaChartBar, FaShoppingCart, FaTrophy, FaClock, FaSignOutAlt } from 'react-icons/fa';
+import { FaBars, FaUser, FaCog, FaHome, FaChartBar, FaShoppingCart, FaTag, FaClock, FaSignOutAlt } from 'react-icons/fa';
+import { BsFillTagFill } from "react-icons/bs";
 
 const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) => {
   const navigate = useNavigate();
 
   let location = useLocation();
   React.useEffect(() => {
-    toggleSidebar()
+    if(isSidebarOpen)toggleSidebar()
+  
   }, [location]);
   const handleLogoutClick = () => {
     // Perform any additional logout logic here
@@ -45,6 +47,12 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) =
               </Link>
             </li>
             <li>
+              <Link to="/tags" className="flex items-center p-4 ">
+                <BsFillTagFill className="mr-2 " />
+                Tags
+              </Link>
+            </li>
+            <li>
               <Link to="/stats" className="flex items-center p-4 ">
                 <FaChartBar className="mr-2 " />
                 Stats
@@ -54,13 +62,6 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) =
               <Link to="/store" className="flex items-center p-4 ">
                 <FaShoppingCart className="mr-2 " />
                 Store
-              </Link>
-            </li>
-            {/* New items for achievements and Top Goose Pomodorks */}
-            <li>
-              <Link to="/achievements" className="flex items-center p-4 ">
-                <FaTrophy className="mr-2 " />
-                Achievements
               </Link>
             </li>
             <li>

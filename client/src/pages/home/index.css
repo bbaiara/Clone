@@ -38,6 +38,7 @@
     background-color: var(--secondary);
     color: white;
     border-radius: 12px;
+    margin-bottom: 48px;
 
 }
 .home_timer_time{
@@ -50,4 +51,44 @@
     border-radius: 8px;
     font-size: 1.5rem;
     padding: 12px 48px;
+}
+.timer_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:12px;
+}
+.timer_button_active{
+    background: var(--primary);
+    color:white;
+}
+.time-wrapper{
+    background: white !important;
+}
+.timer_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.timer_buttons button{
+    font-size: 1.5rem;
+    border-radius: 12px;
+}
+#timer_update_button{
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+
+}
+#timer_update_button button{
+    background: none;
+    color: white;
+    text-align: center;
+    padding: 0;
+    min-width: 0;
+    font-size: 2rem;
+
 }
