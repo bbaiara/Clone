@@ -41,6 +41,7 @@ router.post('/sign-up', async (req, res) => {
 // User Sign-in API
 router.post('/sign-in', async (req, res) => {
   console.log('it works)');
+  console.log(req.body)
 try {
   const { email, password } = req.body;
 
@@ -49,7 +50,7 @@ try {
   if (user) {
     // compare the provided password with the hashed password in the database
     const passwordMatch = await bcrypt.compare(password, user.password);
-
+    console.log("User found!")
     if (passwordMatch) {
       res.json({
         success: true,

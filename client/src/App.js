@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
-// import SigninForm from './auth/forms/signin';
+import SigninForm from './auth/forms/signin';
 import SignUpForm from './auth/forms/signup';
 
 import Sidebar from './shared/sidebar';
