@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './index.css'
+import CoinCounter from './CoinCounter';
 export default function Home(){
     const [active, setActive] = useState('a')
     const [minutes, setMinutes] = useState(5);
@@ -36,6 +37,7 @@ export default function Home(){
                     </button>
                 </div>
             </div>
+            <CoinCounter/>
         </div>
     )
 }

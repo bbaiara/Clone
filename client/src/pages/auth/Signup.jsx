@@ -19,6 +19,12 @@ export default function Signup(){
                         <button type='submit' >Register</button>
                     </div>
                 </form>
+                <div className='divider'>
+                    <span/>
+                    <p>Or</p>
+                    <span/>
+                </div>
+                <button className='social_login'>Sign up with Google</button>
             </div>
         </div>
     )

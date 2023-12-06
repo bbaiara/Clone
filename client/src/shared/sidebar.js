@@ -7,7 +7,8 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) =
 
   let location = useLocation();
   React.useEffect(() => {
-    toggleSidebar()
+    if(isSidebarOpen)toggleSidebar()
+  
   }, [location]);
   const handleLogoutClick = () => {
     // Perform any additional logout logic here
