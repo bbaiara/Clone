@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { FaBars, FaUser, FaCog, FaHome, FaChartBar, FaShoppingCart, FaTag, FaClock, FaSignOutAlt } from 'react-icons/fa';
 import { BsFillTagFill } from "react-icons/bs";
+import { PiSealWarningFill } from "react-icons/pi";
 
 const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) => {
   const navigate = useNavigate();
@@ -68,6 +69,12 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen, openSettings, handleLogout }) =
               <Link to="/ranks" className="flex items-center p-4 ">
                 <FaClock className="mr-2 " />
                 Top Goose Pomodorks
+              </Link>
+            </li>
+            <li>
+              <Link to="/readme" className="flex items-center p-4 ">
+                <PiSealWarningFill className="mr-2 " />
+                Read me First
               </Link>
             </li>
           </ul>

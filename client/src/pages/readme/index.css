@@ -1,0 +1,11 @@
+.readme{
+    color:black;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 24px;
+}
+.readme h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
