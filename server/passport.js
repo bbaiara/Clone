@@ -33,7 +33,7 @@ passport.use(
 	  {
 		clientID: process.env.CLIENT_ID,
 		clientSecret: process.env.CLIENT_SECRET,
-		callbackURL: 'http://localhost:3001/auth/google/callback',
+		callbackURL: 'http://localhost:5001/auth/google/callback',
 		userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo',
 		scope: ['profile', 'email'],
 	  },
