@@ -20,6 +20,7 @@ import Signin from './pages/auth/Signin';
 import Signup from './pages/auth/Signup';
 import { ConfigProvider } from 'antd';
 import Ranks from './pages/ranks';
+import ReadMe from './pages/readme';
 
 /*
 const Home = () => {
@@ -200,6 +201,7 @@ function App() {
             />
             <Route path="/store" element={<Store />} />
             <Route path="/ranks" element={<Ranks />} />
+            <Route path="/readme" element={<ReadMe />} />
             <Route path="/achievements" element={<Achievements />} />
           </Routes>
         </div>    
